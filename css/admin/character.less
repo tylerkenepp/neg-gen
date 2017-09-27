@@ -1,0 +1,75 @@
+.clearfix{
+  &:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+}
+
+body.post-type-character {
+  .acf_postbox {
+    .inside {
+      border: solid 1px black;
+      margin: 10px 0 !important;
+      padding: 10px !important;
+      border-radius: 5px;
+      .field {
+        border-top: 0 none;
+        padding-left: 5px;
+        padding-right: 5px;
+        box-sizing: border-box;
+      }
+    }
+  }
+  #acf_9 { //Base Stats
+    .inside {
+      display: flex;
+      flex-wrap: wrap;
+      .field {
+        width: 33%;
+      }
+      #acf-hp {
+        width: 100%;
+      }
+    }
+  }
+  #acf_10 { //Classes
+    .inside {
+      display: flex;
+      flex-wrap: wrap;
+      #acf-class_1, #acf-level_1, #acf-subclass_1, #acf-class_2, #acf-level_2, #acf-subclass_2 {
+        width: 33%;
+      }
+      #acf-traits_1, #acf-traits_2 {
+        width: 100%;
+      }
+      #acf-abilities_1, #acf-abilities_2 {
+        width: 100%;
+      }
+    }
+  }
+  #acf_11, #acf_12 { //Buffs and Skills
+    .inside {
+      display: flex;
+      flex-wrap: wrap;
+      .field {
+        width: 33%;
+      }
+    }
+  }
+  #acf_14 { //Personal Info
+    .inside {
+      display: flex;
+      flex-wrap: wrap;
+      .field {
+        width: 50%;
+      }
+      #acf-reason_for_adventuring {
+        width: 100%;
+      }
+    }
+  }
+}

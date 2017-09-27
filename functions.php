@@ -3,7 +3,19 @@
 	External Modules/Files
 \*------------------------------------*/
 
-require ("php/CPT.php");
+//require ("php/CPT.php");
+
+add_action( 'wp_enqueue_scripts', 'nexgen_load_scripts' );
+function nexgen_load_scripts()
+{
+  wp_enqueue_script( 'jquery' );
+}
+
+add_action('admin_enqueue_scripts', 'character_styles');
+add_action('login_enqueue_scripts', 'character_styles');
+function character_styles() {
+    wp_enqueue_style('character', "/wp-content/themes/nex-gen/css/admin/character.css", '', '1.01');
+}
 
 /*------------------------------------*\
 	Theme Support
@@ -381,4 +393,5 @@ remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altoget
 	Custom Post Types
 \*------------------------------------*/
 
-include ("php/post_types/Spell.php");
+//include ("php/post_types/Spell.php");
+include ("php/post_types/Character.php");

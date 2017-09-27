@@ -1,0 +1,69 @@
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+body.post-type-character .acf_postbox .inside {
+  border: solid 1px black;
+  margin: 10px 0 !important;
+  padding: 10px !important;
+  border-radius: 5px;
+}
+body.post-type-character .acf_postbox .inside .field {
+  border-top: 0 none;
+  padding-left: 5px;
+  padding-right: 5px;
+  box-sizing: border-box;
+}
+body.post-type-character #acf_9 .inside {
+  display: flex;
+  flex-wrap: wrap;
+}
+body.post-type-character #acf_9 .inside .field {
+  width: 33%;
+}
+body.post-type-character #acf_9 .inside #acf-hp {
+  width: 100%;
+}
+body.post-type-character #acf_10 .inside {
+  display: flex;
+  flex-wrap: wrap;
+}
+body.post-type-character #acf_10 .inside #acf-class_1,
+body.post-type-character #acf_10 .inside #acf-level_1,
+body.post-type-character #acf_10 .inside #acf-subclass_1,
+body.post-type-character #acf_10 .inside #acf-class_2,
+body.post-type-character #acf_10 .inside #acf-level_2,
+body.post-type-character #acf_10 .inside #acf-subclass_2 {
+  width: 33%;
+}
+body.post-type-character #acf_10 .inside #acf-traits_1,
+body.post-type-character #acf_10 .inside #acf-traits_2 {
+  width: 100%;
+}
+body.post-type-character #acf_10 .inside #acf-abilities_1,
+body.post-type-character #acf_10 .inside #acf-abilities_2 {
+  width: 100%;
+}
+body.post-type-character #acf_11 .inside,
+body.post-type-character #acf_12 .inside {
+  display: flex;
+  flex-wrap: wrap;
+}
+body.post-type-character #acf_11 .inside .field,
+body.post-type-character #acf_12 .inside .field {
+  width: 33%;
+}
+body.post-type-character #acf_14 .inside {
+  display: flex;
+  flex-wrap: wrap;
+}
+body.post-type-character #acf_14 .inside .field {
+  width: 50%;
+}
+body.post-type-character #acf_14 .inside #acf-reason_for_adventuring {
+  width: 100%;
+}
