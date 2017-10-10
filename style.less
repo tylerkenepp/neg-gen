@@ -94,17 +94,17 @@ input:focus {
 }
 
 .wrapper {
-	height: 100vh;
+	height: 100%;
 }
 
-body.admin-bar {
-	.wrapper {
-		height: calc(~"100vh - 32px");
-	}
-	.header {
-		height: calc(~"100vh - 32px");
-	}
-}
+// body.admin-bar {
+// 	.wrapper {
+// 		height: calc(~"100vh - 32px");
+// 	}
+// 	.header {
+// 		height: calc(~"100vh - 32px");
+// 	}
+// }
 
 /*------------------------------------*\
     STRUCTURE
@@ -203,18 +203,9 @@ body.admin-bar {
 main {
 	padding: 25px;
 	box-sizing: border-box;
-	&::after {
-    content: "";
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;
-		background-image: url("img/grid.jpg");
-		background-repeat: repeat;
-		opacity: 0.2;
-  }
+	background-image: url("img/grid.png");
+	background-repeat: repeat;
+	height: 100%;
 }
 
 /*------------------------------------*\
@@ -249,8 +240,6 @@ main {
 	}
 	.collapse-toggle {
 		display: block;
-		.panel;
-		.lighter;
 		&.active {
 			border-bottom-left-radius: 0;
 			border-bottom-right-radius: 0;
@@ -258,8 +247,6 @@ main {
 		}
 	}
 	.collapse-box {
-		.panel;
-		.lighter;
 		&.open {
 			border-top-left-radius: 0;
 			border-top-right-radius: 0;

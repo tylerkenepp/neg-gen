@@ -183,7 +183,7 @@
       </div>
 
       <a href="#classes" class="collapse-toggle">Class Info</a>
-      <div class="collapse-box" id="classes">
+      <div class="collapse-box hide" id="classes">
         <div class="grid-container">
           <div class="grid-50 tablet-grid-50 mobile-grid-100">
             <div>

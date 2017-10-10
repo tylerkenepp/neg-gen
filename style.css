@@ -84,13 +84,7 @@ input:focus {
   border: 1px solid #1976d2;
 }
 .wrapper {
-  height: 100vh;
-}
-body.admin-bar .wrapper {
-  height: calc(100vh - 32px);
-}
-body.admin-bar .header {
-  height: calc(100vh - 32px);
+  height: 100%;
 }
 /*------------------------------------*\
     STRUCTURE
@@ -206,18 +200,9 @@ body.admin-bar .header {
 main {
   padding: 25px;
   box-sizing: border-box;
-}
-main::after {
-  content: "";
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
-  background-image: url("img/grid.jpg");
+  background-image: url("img/grid.png");
   background-repeat: repeat;
-  opacity: 0.2;
+  height: 100%;
 }
 /*------------------------------------*\
     PAGES
@@ -247,43 +232,11 @@ main::after {
 }
 .character-content .collapse-toggle {
   display: block;
-  margin-bottom: 25px;
-  padding: 15px;
-  background-color: rgba(64, 64, 64, 0.9);
-  border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.75) 5px 5px 5px;
-  background-color: rgba(64, 64, 64, 0.5);
-  box-shadow: rgba(0, 0, 0, 0.55) 5px 5px 5px;
-}
-.character-content .collapse-toggle.light {
-  background-color: rgba(64, 64, 64, 0.7);
-  box-shadow: rgba(0, 0, 0, 0.55) 5px 5px 5px;
-}
-.character-content .collapse-toggle.lighter {
-  background-color: rgba(64, 64, 64, 0.5);
-  box-shadow: rgba(0, 0, 0, 0.55) 5px 5px 5px;
 }
 .character-content .collapse-toggle.active {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   margin-bottom: 0;
-}
-.character-content .collapse-box {
-  margin-bottom: 25px;
-  padding: 15px;
-  background-color: rgba(64, 64, 64, 0.9);
-  border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.75) 5px 5px 5px;
-  background-color: rgba(64, 64, 64, 0.5);
-  box-shadow: rgba(0, 0, 0, 0.55) 5px 5px 5px;
-}
-.character-content .collapse-box.light {
-  background-color: rgba(64, 64, 64, 0.7);
-  box-shadow: rgba(0, 0, 0, 0.55) 5px 5px 5px;
-}
-.character-content .collapse-box.lighter {
-  background-color: rgba(64, 64, 64, 0.5);
-  box-shadow: rgba(0, 0, 0, 0.55) 5px 5px 5px;
 }
 .character-content .collapse-box.open {
   border-top-left-radius: 0;
