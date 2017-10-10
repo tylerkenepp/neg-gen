@@ -11,10 +11,32 @@
 */
 
 /*------------------------------------*\
-    KUBE Framework
+    External Sources
 \*------------------------------------*/
 
 @import "css/Kube.css";
+
+@import "css/material.less";
+
+/*------------------------------------*\
+    Utilities
+\*------------------------------------*/
+
+.panel {
+	margin-bottom: 25px;
+	padding: 15px;
+	background-color: rgba(64,64,64,.9);
+	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.75) 5px 5px 5px;
+	&.light {
+		background-color: rgba(64,64,64,.7);
+		box-shadow: rgba(0, 0, 0, 0.55) 5px 5px 5px;
+	}
+	&.lighter {
+		background-color: rgba(64,64,64,.5);
+		box-shadow: rgba(0, 0, 0, 0.55) 5px 5px 5px;
+	}
+}
 
 /*------------------------------------*\
     MAIN
@@ -30,13 +52,10 @@
 	font-smoothing:antialiased;
 	text-rendering:optimizeLegibility;
 }
-/* html element 62.5% font-size for REM use */
-html {
-	font-size:62.5%;
-}
+
 body {
 	font-family: 'Ubuntu', sans-serif;
-	color:#444;
+	color: @grey-900;
 }
 /* clear */
 .clear:before,
@@ -56,11 +75,11 @@ img {
 	vertical-align:bottom;
 }
 a {
-	color:#444;
+	color: @blue-700;
 	text-decoration:none;
 }
 a:hover {
-	color:#444;
+	color: @blue-a100;
 }
 a:focus {
 	outline:0;
@@ -71,7 +90,20 @@ a:active {
 }
 input:focus {
 	outline:0;
-	border:1px solid #04A4CC;
+	border:1px solid @blue-700;
+}
+
+.wrapper {
+	height: 100vh;
+}
+
+body.admin-bar {
+	.wrapper {
+		height: calc(~"100vh - 32px");
+	}
+	.header {
+		height: calc(~"100vh - 32px");
+	}
 }
 
 /*------------------------------------*\
@@ -80,32 +112,160 @@ input:focus {
 
 /* header */
 .header {
-
+	background-image: url("img/map-side.png");
+	background-size: cover;
+	padding: 15px;
+	box-shadow: rgba(0, 0, 0, 0.5) 5px 0px 20px;
+	box-sizing: border-box;
+	position: fixed;
+  height: 100%;
+	overflow-y: auto;
+	.logo {
+		width: 100%;
+		.panel;
+		a {
+			display: block;
+			font-family: "Celexa", serif;
+			color: white;
+			font-size: 3.5em;
+			line-height: 72px;
+			text-align: center;
+			text-shadow: rgba(0, 0, 0, 0.75) 5px 5px 5px;
+		}
+	}
+	/* footer */
+	.footer {
+		background-color: @grey-800;
+		color: white;
+		width: 100%;
+		padding: 10px 15px;
+		box-sizing: border-box;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		.copyright {
+			line-height: 32px;
+		}
+	}
 }
-/* logo */
-.logo {
 
-}
-.logo-img {
-
-}
 /* nav */
 .nav {
+	.panel;
+	ul {
+		display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+		li {
+			line-height: 56px;
+			margin: 0 5px;
+			a {
+				color: #ffffff;
+				font-size: 22px;
+				line-height: 28px;
+				border: solid 2px rgba(255,255,255,.25);
+				padding: 5px 15px;
+				border-radius: 10px;
+				-webkit-transition: all ease .5s;
+				-o-transition: all ease .5s;
+				transition: all ease .5s;
+				&:hover {
+					border: solid 2px #ffffff;
+				}
+			}
+		}
+	}
 
 }
 /* sidebar */
 .sidebar {
-
+	padding: 15px;
+	background-color: rgba(64,64,64,.9);
+	border-radius: 10px;
+	margin-bottom: 25px;
+	box-shadow: rgba(0, 0, 0, 0.75) 5px 5px 5px;
+	h3 {
+		color: #ffffff;
+	}
+	ul {
+		li {
+			color: #ffffff;
+			a {
+				color: #ffffff;
+				font-size: 22px;
+			}
+		}
+	}
 }
-/* footer */
-.footer {
 
+/* main */
+main {
+	padding: 25px;
+	box-sizing: border-box;
+	&::after {
+    content: "";
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+		background-image: url("img/grid.jpg");
+		background-repeat: repeat;
+		opacity: 0.2;
+  }
 }
 
 /*------------------------------------*\
     PAGES
 \*------------------------------------*/
 
+.character-content {
+	.health {
+		.readout {
+			display: flex;
+			justify-content: center;
+			font-size: 48px;
+			line-height: 48px;
+			margin-bottom: 25px;
+		}
+		.buttons {
+			display: flex;
+			justify-content: center;
+			margin-bottom: 25px;
+			button {
+				margin: 0 10px;
+			}
+			input {
+				width: 100px;
+			}
+		}
+		.full {
+			width: 200px;
+			margin: 0 auto;
+			display: block;
+		}
+	}
+	.collapse-toggle {
+		display: block;
+		.panel;
+		.lighter;
+		&.active {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+			margin-bottom: 0;
+		}
+	}
+	.collapse-box {
+		.panel;
+		.lighter;
+		&.open {
+			border-top-left-radius: 0;
+			border-top-right-radius: 0;
+		}
+	}
+}
 
 
 /*------------------------------------*\
@@ -119,6 +279,13 @@ input:focus {
 \*------------------------------------*/
 
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,700');
+
+@font-face {
+	font-family: Celexa;
+	src: local('celexa'),
+		url("css/fonts/celexa__.ttf") format('truetype');
+	font-weight: normal;
+}
 
 /*------------------------------------*\
     RESPONSIVE
