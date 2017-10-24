@@ -1,31 +1,34 @@
 <?php $meta = get_post_meta(get_the_ID()); ?>
 <div class="character-content full">
   <header>
-    <div class="panel lighter">
-      <h2><?=get_the_title()?> - Level <?=get_post_meta(get_the_ID(), 'level_1', true)?> <?=get_post_meta(get_the_ID(), 'race', true)?> <?=get_post_meta(get_the_ID(), 'class_1', true)?></h2>
-      <h4>Level <?=get_post_meta(get_the_ID(), 'level_2', true)?> <?=get_post_meta(get_the_ID(), 'class_2', true)?></h4>
+    <div class="player-title">
+      <h2>
+        <?=get_the_title()?> - Level <?=intval(get_post_meta(get_the_ID(), 'level_1', true)) + intval(get_post_meta(get_the_ID(), 'level_2', true))?><span> </span>
+        <?=get_post_meta(get_the_ID(), 'race', true)?><span> </span>
+        <?=get_post_meta(get_the_ID(), 'class_1', true)?>
+        <?=empty(get_post_meta(get_the_ID(), 'class_2', true))?"<span> / <span>".get_post_meta(get_the_ID(), 'class_2', true):""?>
+      </h2>
     </div>
-    <div class="health panel lighter">
-      <div class="readout">
-        <span class="current"><?=get_post_meta(get_the_ID(), 'hp', true)?></span>
-        <span class="div">/</span>
-        <span class="max"><?=get_post_meta(get_the_ID(), 'hp', true)?></span> HP
-      </div>
-      <div class="buttons">
-        <button class="sub"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
-        <input type="number" value="1">
-        <button class="add"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
-      </div>
-      <button class="full"><i class="fa fa-heart" aria-hidden="true"></i> Full Health</button>
-    </div>
-    <hr>
   </header>
+  <div class="health">
+    <div class="readout">
+      <span class="current"><?=get_post_meta(get_the_ID(), 'hp', true)?></span>
+      <span class="div">/</span>
+      <span class="max"><?=get_post_meta(get_the_ID(), 'hp', true)?></span> HP
+    </div>
+    <div class="buttons">
+      <button class="sub"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+      <input type="number" value="1">
+      <button class="add"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+    </div>
+    <button class="full"><i class="fa fa-heart" aria-hidden="true"></i> Full Health</button>
+  </div>
   <section>
     <div id="character-stats" data-component="collapse">
-      <a href="#base-stats" class="collapse-toggle">Base Stats</a>
+      <a href="#base-stats" class="collapse-toggle"><h3>Base Stats</h3></a>
       <div class="collapse-box hide" id="base-stats">
-        <div class="grid-container">
-          <div class="grid-50 tablet-grid-50 mobile-grid-100">
+        <div class="row">
+          <div class="col col-6">
             <table class="fancy-w-headers">
               <tr>
                 <th></th>
@@ -95,18 +98,18 @@
               <tr>
                 <td>Armor Class</td><td><?=$meta['armor_class'][0]?></td>
               </tr>
-              <tr>
+              <!-- <tr>
                 <td>Passive Resistance</td><td><?=$meta['passive_resistance'][0]?></td>
-              </tr>
-              <tr>
+              </tr> -->
+              <!-- <tr>
                 <td>Spell Resistance</td><td><?=$meta['spell_resistance'][0]?></td>
-              </tr>
-              <tr>
+              </tr> -->
+              <!-- <tr>
                 <td>Proficiency Bonus</td><td><?=$meta['proficiency_bonus'][0]?></td>
-              </tr>
+              </tr> -->
             </table>
           </div>
-          <div class="grid-50 tablet-grid-50 mobile-grid-100">
+          <div class="col col-6">
             <div>
               <h4>
                 Skills
@@ -117,22 +120,19 @@
                   <td>Acrobatics</td><td><?=$meta['acrobatics'][0]?></td>
                 </tr>
                 <tr>
-                  <td>Arcana</td><td><?=$meta['arcana'][0]?></td>
+                  <td>Concentration</td><td><?=$meta['concentration'][0]?></td>
                 </tr>
                 <tr>
-                  <td>Concentration</td><td><?=$meta['concentration'][0]?></td>
+                  <td>Disguise</td><td><?=$meta['disguise'][0]?></td>
                 </tr>
                 <tr>
                   <td>Handle Animal</td><td><?=$meta['handle_animal'][0]?></td>
                 </tr>
                 <tr>
-                  <td>Heal</td><td><?=$meta['heal'][0]?></td>
-                </tr>
-                <tr>
                   <td>Innovate</td><td><?=$meta['innovate'][0]?></td>
                 </tr>
                 <tr>
-                  <td>Invent</td><td><?=$meta['invent'][0]?></td>
+                  <td>Intimidate</td><td><?=$meta['intimidate'][0]?></td>
                 </tr>
                 <tr>
                   <td>Knowledge Arcana</td><td><?=$meta['knowledge_arcana'][0]?></td>
@@ -144,16 +144,19 @@
                   <td>Knowledge General</td><td><?=$meta['knowledge_general'][0]?></td>
                 </tr>
                 <tr>
+                  <td>Knowledge Geography</td><td><?=$meta['knowledge_geography'][0]?></td>
+                </tr>
+                <tr>
                   <td>Knowledge Lore</td><td><?=$meta['knowledge_lore'][0]?></td>
                 </tr>
                 <tr>
                   <td>Knowledge Nature</td><td><?=$meta['knowledge_nature'][0]?></td>
                 </tr>
                 <tr>
-                  <td>Memory</td><td><?=$meta['memory'][0]?></td>
+                  <td>Magic Device</td><td><?=$meta['magic_device'][0]?></td>
                 </tr>
                 <tr>
-                  <td>Operate</td><td><?=$meta['operate'][0]?></td>
+                  <td>Memory</td><td><?=$meta['memory'][0]?></td>
                 </tr>
                 <tr>
                   <td>Perception</td><td><?=$meta['perception'][0]?></td>
@@ -182,10 +185,10 @@
         </div>
       </div>
 
-      <a href="#classes" class="collapse-toggle">Class Info</a>
+      <a href="#classes" class="collapse-toggle"><h3>Class Info</h3></a>
       <div class="collapse-box hide" id="classes">
-        <div class="grid-container">
-          <div class="grid-50 tablet-grid-50 mobile-grid-100">
+        <div class="row">
+          <div class="col col-6">
             <div>
               <h4>First Class</h4>
               <br>
@@ -201,7 +204,7 @@
               <div class="traits">Abilities: <?=get_post_meta(get_the_ID(), 'abilities_1', true)?></div>
             </div>
           </div>
-          <div class="grid-50 tablet-grid-50 mobile-grid-100">
+          <div class="col col-6">
             <div>
               <h4>Second Class</h4>
               <br>
@@ -221,7 +224,7 @@
         <br><br>
         <hr>
         <br><br>
-        <div class="grid-100">
+        <div class="col col-12">
           <div>
             <div> <?php
               $content = get_post_meta(get_the_ID(), 'passive-traits', true);
@@ -233,10 +236,10 @@
         </div>
       </div>
 
-      <a href="#general" class="collapse-toggle">General Info</a>
+      <a href="#general" class="collapse-toggle"><h3>General Info</h3></a>
       <div class="collapse-box hide" id="general">
-        <div class="grid-container">
-          <div class="grid-50 tablet-grid-50 mobile-grid-100">
+        <div class="row">
+          <div class="col col-6">
             <div>
               <div>Full Name: <?=get_post_meta(get_the_ID(), 'name', true)?></div>
               <div>Age: <?=get_post_meta(get_the_ID(), 'age', true)?></div>
@@ -256,7 +259,7 @@
               </div>
             </div>
           </div>
-          <div class="grid-50 tablet-grid-50 mobile-grid-100">
+          <div class="col col-6">
             <div> <?php
               $content = get_post_meta(get_the_ID(), 'previous_relationships', true);
               $content = apply_filters('the_content', $content);
@@ -267,78 +270,73 @@
       </div>
     </div>
 
-    <div class="spells"> <?php
-      $spells = get_post_meta(get_the_ID(), 'repeatable_fields', true);
+    <div data-component="collapse">
+      <a href="#spells" class="collapse-toggle"><h3>Spells</h3></a>
+      <div class="collapse-box hide panel lighter flat" id="spells"> <?php
+        $spells = get_post_meta(get_the_ID(), 'repeatable_fields', true);
 
-      $level_1 = get_post_meta(get_the_ID(), 'level_1', true);
-      $level_2 = get_post_meta(get_the_ID(), 'level_2', true);
-      $max_level = max($level_1, $level_2);
+        $level_1 = get_post_meta(get_the_ID(), 'level_1', true);
+        $level_2 = get_post_meta(get_the_ID(), 'level_2', true);
+        $total_level = $level_1 + $level_2;
 
-      if (!empty($spells)) { ?>
-        <button id="clear-spells">Clear Spell Stats</button>
-        <!-- <div class="spell-levels"> <?php
-          for ($i = 1; $i <= $max_level; $i++) { ?>
-            <div class="level">
-              <p>Level <?=$i?> Spells</p> <?php
-              for ($j = 0; $j < $level - $i; $j++) { ?>
-                <input type="checkbox"> <?php
-              }
-              if ($i == $level) { ?>
-                <input type="checkbox"> <?php
-              } ?>
-          </div> <?php
-          } ?>
-        </div> -->
-        <div class="character-spells"> <?php
-          for($level = 0; $level <= $max_level; $level++) { ?>
-            <h3><?=($level==0?'Cantrips':"Level $level")?></h3>
-            <div class="spell_list"> <?php
-              foreach($spells as $spell) {
-                if ($spell['level'] == $level) {
-                  $obj = get_post($spell['spell']); ?>
-                  <div class="spell-block">
-                    <button data-component="modal" data-target="#spell-<?=$spell['spell']?>"><?=get_the_title($spell['spell'])?></button>
-                  </div>
-                  <div id="my-modal" class="modal-box hide">
-                    <div class="modal">
-                      <span class="close"></span>
-                      <div class="modal-header"><?=get_the_title($spell['spell'])?></div>
-                      <div class="modal-body"> <?php
-                        $desc = get_post_meta($spell['spell'], 'description', true);
-                        $dice = get_post_meta($spell['spell'], 'dice-stats', true);
-                        $range = get_post_meta($spell['spell'], 'range', true);
-                        $duration = get_post_meta($spell['spell'], 'duration', true);
-                        $target = get_post_meta($spell['spell'], 'target', true);
+        if (!empty($spells)) { ?>
+          <button id="clear-spells">Clear Spell Stats</button>
+          <div class="spell-levels"> <?php
+            for ($i = 0; $i < $total_level; $i++) {
 
-                        if (!empty($desc)) { ?>
-                          <h4>Description</h4>
-                          <p><?=$desc?></p><?php
-                        }
-                        if (!empty($dice)) { ?>
-                          <h5>Dice Stats</h5>
-                          <p><?=$dice?></p><?php
-                        }
-                        if (!empty($range)) { ?>
-                          <h5>Spell Range</h5>
-                          <p><?=$range?></p><?php
-                        }
-                        if (!empty($duration)) { ?>
-                          <h5>Duration</h5>
-                          <p><?=$duration?></p><?php
-                        }
-                        if (!empty($target)) { ?>
-                          <h5>Target</h5>
-                          <p><?=$target?></p><?php
-                        } ?>
-                      </div>
+            } ?>
+          </div>
+          <div class="character-spells"> <?php
+            for($level = 0; $level <= $total_level; $level++) { ?>
+              <h3><?=($level==0?'Cantrips':"Level $level")?></h3>
+              <div class="spell_list"> <?php
+                foreach($spells as $spell) {
+                  if ($spell['level'] == $level) {
+                    $obj = get_post($spell['spell']); ?>
+                    <div class="spell-block">
+                      <button data-component="modal" data-target="#spell-<?=$spell['spell']?>"><?=get_the_title($spell['spell'])?></button>
                     </div>
-                  </div> <?php
-                }
-              } ?>
-            </div> <?php
-          } ?>
-        </div> <?php
-      } ?>
+                    <div id="my-modal" class="modal-box hide">
+                      <div class="modal">
+                        <span class="close"></span>
+                        <div class="modal-header"><?=get_the_title($spell['spell'])?></div>
+                        <div class="modal-body"> <?php
+                          $desc = get_post_meta($spell['spell'], 'description', true);
+                          $dice = get_post_meta($spell['spell'], 'dice-stats', true);
+                          $range = get_post_meta($spell['spell'], 'range', true);
+                          $duration = get_post_meta($spell['spell'], 'duration', true);
+                          $target = get_post_meta($spell['spell'], 'target', true);
+
+                          if (!empty($desc)) { ?>
+                            <h4>Description</h4>
+                            <p><?=$desc?></p><?php
+                          }
+                          if (!empty($dice)) { ?>
+                            <h5>Dice Stats</h5>
+                            <p><?=$dice?></p><?php
+                          }
+                          if (!empty($range)) { ?>
+                            <h5>Spell Range</h5>
+                            <p><?=$range?></p><?php
+                          }
+                          if (!empty($duration)) { ?>
+                            <h5>Duration</h5>
+                            <p><?=$duration?></p><?php
+                          }
+                          if (!empty($target)) { ?>
+                            <h5>Target</h5>
+                            <p><?=$target?></p><?php
+                          } ?>
+                        </div>
+                      </div>
+                    </div> <?php
+                  }
+                } ?>
+              </div> <?php
+            } ?>
+          </div> <?php
+        } ?>
+      </div>
     </div>
   </section>
 </div>

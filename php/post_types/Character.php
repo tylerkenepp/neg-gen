@@ -1,4 +1,44 @@
 <?php
+  function cptui_register_my_cpts_character() {
+
+  /**
+   * Post Type: Characters.
+   */
+
+  $labels = array(
+    "name" => __( "Characters", "" ),
+    "singular_name" => __( "Character", "" ),
+  );
+
+  $args = array(
+    "label" => __( "Characters", "" ),
+    "labels" => $labels,
+    "description" => "",
+    "public" => true,
+    "publicly_queryable" => true,
+    "show_ui" => true,
+    "show_in_rest" => false,
+    "rest_base" => "",
+    "has_archive" => false,
+    "show_in_menu" => true,
+    "exclude_from_search" => true,
+    "capability_type" => "post",
+    "map_meta_cap" => true,
+    "hierarchical" => false,
+    "rewrite" => array( "slug" => "character", "with_front" => true ),
+    "query_var" => true,
+    "menu_position" => 5,
+    "menu_icon" => "dashicons-id-alt",
+    "supports" => array( "title" ),
+  );
+
+  register_post_type( "character", $args );
+  }
+
+  add_action( 'init', 'cptui_register_my_cpts_character' );
+
+  //spells field ===============================================================
+
   add_action('admin_init', 'add_meta_boxes', 1);
   function add_meta_boxes() {
     add_meta_box( 'repeatable-fields', 'Character Spells', 'repeatable_meta_box_display', 'character', 'side');

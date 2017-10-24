@@ -32,9 +32,15 @@
   background-color: rgba(64, 64, 64, 0.5);
   box-shadow: rgba(0, 0, 0, 0.55) 5px 5px 5px;
 }
+.panel.flat {
+  box-shadow: none;
+}
 /*------------------------------------*\
     MAIN
 \*------------------------------------*/
+html {
+  font-size: 2vw;
+}
 /* global box-sizing */
 *,
 *:after,
@@ -84,7 +90,13 @@ input:focus {
   border: 1px solid #1976d2;
 }
 .wrapper {
-  height: 100%;
+  min-height: 100vh;
+}
+body.admin-bar .wrapper {
+  min-height: calc(100vh - 32px);
+}
+body.admin-bar .header {
+  min-height: calc(100vh - 32px);
 }
 /*------------------------------------*\
     STRUCTURE
@@ -116,6 +128,9 @@ input:focus {
 .header .logo.lighter {
   background-color: rgba(64, 64, 64, 0.5);
   box-shadow: rgba(0, 0, 0, 0.55) 5px 5px 5px;
+}
+.header .logo.flat {
+  box-shadow: none;
 }
 .header .logo a {
   display: block;
@@ -155,22 +170,25 @@ input:focus {
   background-color: rgba(64, 64, 64, 0.5);
   box-shadow: rgba(0, 0, 0, 0.55) 5px 5px 5px;
 }
+.nav.flat {
+  box-shadow: none;
+}
 .nav ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 .nav ul li {
-  line-height: 56px;
-  margin: 0 5px;
+  line-height: 28px;
+  margin: 5px;
+  border: solid 2px rgba(255, 255, 255, 0.25);
+  padding: 5px 15px;
+  border-radius: 10px;
+  text-align: center;
 }
 .nav ul li a {
   color: #ffffff;
   font-size: 22px;
-  line-height: 28px;
-  border: solid 2px rgba(255, 255, 255, 0.25);
-  padding: 5px 15px;
-  border-radius: 10px;
   -webkit-transition: all ease .5s;
   -o-transition: all ease .5s;
   transition: all ease .5s;
@@ -202,11 +220,24 @@ main {
   box-sizing: border-box;
   background-image: url("img/grid.png");
   background-repeat: repeat;
-  height: 100%;
+  min-height: 100%;
 }
 /*------------------------------------*\
     PAGES
 \*------------------------------------*/
+.character-content .player-title {
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: #808080;
+  border-radius: 10px;
+}
+.character-content .health {
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: #808080;
+  border-radius: 10px;
+  max-height: 215px;
+}
 .character-content .health .readout {
   display: flex;
   justify-content: center;
@@ -232,11 +263,26 @@ main {
 }
 .character-content .collapse-toggle {
   display: block;
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: #808080;
+  border-radius: 10px;
+}
+.character-content .collapse-toggle h3 {
+  margin-bottom: 0;
+  color: #212121;
 }
 .character-content .collapse-toggle.active {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   margin-bottom: 0;
+}
+.character-content .collapse-box {
+  display: block;
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: #808080;
+  border-radius: 10px;
 }
 .character-content .collapse-box.open {
   border-top-left-radius: 0;

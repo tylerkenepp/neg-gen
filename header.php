@@ -33,7 +33,7 @@
 		<div class="wrapper row">
 
 			<!-- header -->
-			<header class="header clear col col-4" role="banner">
+			<header class="header clear col col-3" role="banner">
 
 					<!-- logo -->
 					<div class="logo">
@@ -61,4 +61,4 @@
 
 			</header>
 			<!-- /header -->
-			<main role="main" class="col col-8 offset-4">
+			<main role="main" class="col col-9 offset-3">

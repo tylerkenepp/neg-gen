@@ -366,5 +366,5 @@ remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altoget
 	Custom Post Types
 \*------------------------------------*/
 
-//include ("php/post_types/Spell.php");
+include ("php/post_types/Spell.php");
 include ("php/post_types/Character.php");
