@@ -182,19 +182,19 @@ body.admin-bar .header {
   line-height: 28px;
   margin: 5px;
   border: solid 2px rgba(255, 255, 255, 0.25);
-  padding: 5px 15px;
   border-radius: 10px;
   text-align: center;
-}
-.nav ul li a {
-  color: #ffffff;
-  font-size: 22px;
   -webkit-transition: all ease .5s;
   -o-transition: all ease .5s;
   transition: all ease .5s;
 }
-.nav ul li a:hover {
+.nav ul li:hover {
   border: solid 2px #ffffff;
+}
+.nav ul li a {
+  color: #ffffff;
+  font-size: 22px;
+  padding: 5px 15px;
 }
 /* sidebar */
 .sidebar {

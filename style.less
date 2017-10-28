@@ -168,18 +168,19 @@ body.admin-bar {
 			line-height: 28px;
 			margin: 5px;
 			border: solid 2px rgba(255,255,255,.25);
-			padding: 5px 15px;
+
 			border-radius: 10px;
 			text-align: center;
+			-webkit-transition: all ease .5s;
+			-o-transition: all ease .5s;
+			transition: all ease .5s;
+			&:hover {
+				border: solid 2px #ffffff;
+			}
 			a {
 				color: #ffffff;
 				font-size: 22px;
-				-webkit-transition: all ease .5s;
-				-o-transition: all ease .5s;
-				transition: all ease .5s;
-				&:hover {
-					border: solid 2px #ffffff;
-				}
+				padding: 5px 15px;
 			}
 		}
 	}
@@ -271,6 +272,9 @@ main {
 			border-bottom-right-radius: 0;
 			margin-bottom: 0;
 		}
+	}
+	.spell-levels {
+
 	}
 	.collapse-box {
 		display: block;

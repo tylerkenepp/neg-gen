@@ -281,9 +281,33 @@
 
         if (!empty($spells)) { ?>
           <button id="clear-spells">Clear Spell Stats</button>
-          <div class="spell-levels"> <?php
-            for ($i = 0; $i < $total_level; $i++) {
-
+          <div class="spell-levels row gutters around">
+             <?php
+            $slots = array(
+              1 => array(2),
+              2 => array(3,1),
+              3 => array(4,2,1),
+              4 => array(5,3,2,1),
+              5 => array(6,4,3,2,1),
+              6 => array(7,5,4,3,2,1),
+              7 => array(7,6,5,4,3,2,1),
+              8 => array(7,7,6,5,4,3,2,1),
+              9 => array(7,7,7,6,5,4,3,2,1),
+              10 => array(7,7,7,7,6,5,4,3,1),
+              11 => array(7,7,7,7,7,6,5,4,1),
+              12 => array(7,7,7,7,7,7,6,5,1),
+              13 => array(7,7,7,7,7,7,7,6,1),
+              14 => array(7,7,7,7,7,7,7,7,1),
+            );
+            $slot_level = 1;
+            foreach ($slots[min($total_level, 14)] as $slot_count) { ?>
+              <div class="slot" id="slot-<?=$slot_level?>">
+                <label>Level <?=$slot_level?></label>
+                <button id="add-<?=$slot_level?>"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+                <input class="slots" id="remain-<?=$slot_level?>" type="number" value="<?=$slot_count?>" min="0" max="<?=$slot_count?>"/>
+                <button id="subtract-<?=$slot_level?>"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+              </div> <?php
+              $slot_level++;
             } ?>
           </div>
           <div class="character-spells"> <?php
@@ -296,7 +320,7 @@
                     <div class="spell-block">
                       <button data-component="modal" data-target="#spell-<?=$spell['spell']?>"><?=get_the_title($spell['spell'])?></button>
                     </div>
-                    <div id="my-modal" class="modal-box hide">
+                    <div id="spell-<?=$spell['spell']?>" class="modal-box hide">
                       <div class="modal">
                         <span class="close"></span>
                         <div class="modal-header"><?=get_the_title($spell['spell'])?></div>
