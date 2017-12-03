@@ -8,7 +8,7 @@
         Level <?=intval(get_post_meta($id, 'level_1', true)) + intval(get_post_meta($id, 'level_2', true))?><span> </span>
         <?=get_post_meta($id, 'race', true)?><span> </span>
         <?=get_post_meta($id, 'class_1', true)?>
-        <?=empty(get_post_meta($id, 'class_2', true))?"<span> / <span>".get_post_meta($id, 'class_2', true):""?>
+        <?php $class_1 = get_post_meta($id, 'class_2', true); echo (empty($class_1)?"<span> / <span>".get_post_meta($id, 'class_2', true):"")?>
       </h4>
     </div>
     <div class="health col col-6">
