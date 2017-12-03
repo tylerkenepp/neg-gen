@@ -49,7 +49,7 @@
     wp_nonce_field( 'repeatable_meta_box_nonce', 'repeatable_meta_box_nonce' );
 
     //build spell options
-    $all_spells = new WP_query(array('post_type' => 'spell'));
+    $all_spells = new WP_query(array('post_type' => 'spell', 'posts_per_page' => -1));
 
     $spell_options = array();
 
