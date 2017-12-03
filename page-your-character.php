@@ -13,8 +13,10 @@
                                           ),
                                        )
                                  );
-        if ( $character->have_posts() ) : while ( $character->have_posts() ) : $character->the_post();
-          include "character-info.php";
+        if ( $character->have_posts() ) : while ( $character->have_posts() ) : $character->the_post(); ?>
+          <script>
+            window.location.replace("<?=get_permalink()?>");
+          </script> <?php
         endwhile; endif;
      } else { ?>
        <h2>You must be logged in to access this page</h2> <?php

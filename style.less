@@ -221,40 +221,42 @@ main {
 \*------------------------------------*/
 
 .character-content {
-	.player-title {
-		margin-bottom: 25px;
-		padding: 15px;
-		background-color: rgb(128,128,128);
-		border-radius: 10px;
+	table {
+		th, td {
+			padding: 2px;
+		}
 	}
-	.health {
-		margin-bottom: 25px;
+	#header {
 		padding: 15px;
 		background-color: rgb(128,128,128);
 		border-radius: 10px;
-		max-height: 215px;
-		.readout {
-			display: flex;
-			justify-content: center;
-			font-size: 48px;
-			line-height: 48px;
+		margin-bottom: 25px;
+		.health {
 			margin-bottom: 25px;
-		}
-		.buttons {
-			display: flex;
-			justify-content: center;
-			margin-bottom: 25px;
-			button {
-				margin: 0 10px;
+			max-height: 215px;
+			.readout {
+				display: flex;
+				justify-content: center;
+				font-size: 48px;
+				line-height: 48px;
+				margin-bottom: 25px;
 			}
-			input {
-				width: 100px;
+			.buttons {
+				display: flex;
+				justify-content: center;
+				margin-bottom: 25px;
+				button {
+					margin: 0 10px;
+				}
+				input {
+					width: 100px;
+				}
 			}
-		}
-		.full {
-			width: 200px;
-			margin: 0 auto;
-			display: block;
+			.full {
+				width: 200px;
+				margin: 0 auto;
+				display: block;
+			}
 		}
 	}
 	.collapse-toggle {
@@ -273,8 +275,41 @@ main {
 			margin-bottom: 0;
 		}
 	}
-	.spell-levels {
-
+	#spells {
+		button {
+			position: relative;
+			z-index: 1;
+		}
+		.slot {
+			min-width: 80px;
+		}
+		input.slots {
+			width: 60px;
+			text-align: center;
+			margin-top: 5px;
+			margin-bottom: 5px;
+		}
+		input[name="readied-spells"] {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			display: inline-block;
+			opacity: .5;
+			background: firebrick;
+			border: none;
+			height: 40px;
+			width: 45px;
+			position: relative;
+			top: 0px;
+			left: -5px;
+			z-index: 0;
+			&:checked {
+				background: forestgreen;
+			}
+		}
+		.spell-list {
+			margin-left: 0;
+		}
 	}
 	.collapse-box {
 		display: block;
@@ -287,6 +322,7 @@ main {
 			border-top-right-radius: 0;
 		}
 	}
+
 }
 
 
